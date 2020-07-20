@@ -56,13 +56,8 @@ class LeadController {
             data.prospectID = id
             data.save()
 
-            // Get all leads stored in local database
-            def results = Lead.list()
-
             // Redirect to list action
-            redirect(action:"list", params: [
-                    leads: results
-            ])
+            redirect(action:"list")
         } else {
             redirect(action:"create", params: [
                     error: "Something went wrong. Please Try Again",
@@ -73,7 +68,7 @@ class LeadController {
     def home = {}
 
     def create = {
-        def error =  null
+        def error = params.error
         [error: error]
     }
 
@@ -107,9 +102,10 @@ class LeadController {
      * Logic to load the edit page
      */
     def update = {
+        def error = params.error
         def email = params.email
         def res = apiService.getLeadByMail(email)
-        [fData: res]
+        [fData: res, error: error]
     }
 
     /**
@@ -121,13 +117,8 @@ class LeadController {
         def res = apiService.updateLeadAPI(payload, params.prospectID)
 
         if(res != 'error'){
-            // Get all leads stored in local database
-            def results = Lead.list()
-
             // Redirect to list action
-            redirect(action:"list", params: [
-                    leads: results
-            ])
+            redirect(action:"list")
         } else {
             redirect(action:"update", params: [
                     error: "Something went wrong. Please Try Again",

@@ -12,10 +12,12 @@
         <hr class="my-4">
 
         <g:if test="${error != null}">
-          <div class="alert alert-danger" role="alert">
-                 ${error}!
-           </div>
+            <div class="alert alert-danger" role="alert">
+                         ${error}!
+                   </div>
         </g:if>
+
+
 
 
 
@@ -23,29 +25,29 @@
         <div class="form-row">
             <div class="form-group col-md-6">
               <label for="firstName">First Name</label>
-              <input type="text" class="form-control" id="firstName" name="firstName">
+              <input type="text" class="form-control" id="firstName" name="firstName" required>
             </div>
             <div class="form-group col-md-6">
               <label for="lastName">Last Name</label>
-              <input type="text" class="form-control" id="lastName" name="lastName">
+              <input type="text" class="form-control" id="lastName" name="lastName"required>
             </div>
         </div>
 
         <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="email">Email</label>
-                      <input type="email" class="form-control" id="email" name="email">
+                      <input type="email" class="form-control" id="email" name="email" required>
                     </div>
                     <div class="form-group col-md-6">
                       <label for="phoneNumber">Phone Number</label>
-                      <input type="text" class="form-control" id="phoneNumber" name="phoneNumber">
+                      <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" pattern="[0-9]{10}" required>
                     </div>
                 </div>
 
         <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="website">Website</label>
-                      <input type="text" class="form-control" id="website" name="website">
+                      <input type="text" class="form-control" id="website" name="website" required>
                     </div>
                     <div class="form-group col-md-6">
                       <label for="leadSource">Lead Source</label>
