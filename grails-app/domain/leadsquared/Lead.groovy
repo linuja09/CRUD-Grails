@@ -1,5 +1,8 @@
 package leadsquared
 
+/**
+ * Class : Lead
+ */
 class Lead {
 
     String name
